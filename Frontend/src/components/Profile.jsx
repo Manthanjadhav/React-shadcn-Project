@@ -25,8 +25,8 @@ function Profile() {
             <Avatar>
               <div className="w-24 h-24 overflow-hidden rounded-full">
                 <AvatarImage
-                  src="https://tse2.mm.bing.net/th?id=OIP.rBk19h_qlexuFjPZVxMnOgHaEK&pid=Api&P=0&h=180"
-                  alt="Profile Avatar"
+                  src={user?.profile?.profilePhoto}
+                  alt="Profile"
                   className="w-full h-full object-cover"
                 />
               </div>

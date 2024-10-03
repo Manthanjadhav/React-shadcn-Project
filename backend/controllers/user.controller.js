@@ -12,6 +12,15 @@ export const register = async (req, res) => {
         success: false,
       });
     }
+    const file = req.file;
+    if (!file) {
+      return res.status(400).json({
+        message: "Profile photo is required",
+        success: false,
+      });
+    }
+    const fileUrl = await getDataUri(file);
+    const cloudResponse = await cloudinary.uploader.upload(fileUrl.content);
     const user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({
@@ -26,6 +35,9 @@ export const register = async (req, res) => {
       phoneNumber,
       password: hashPassword,
       role,
+      profile: {
+        profilePhoto: cloudResponse.secure_url,
+      },
     });
     return res.status(201).json({
       message: "User Created Successfully",
