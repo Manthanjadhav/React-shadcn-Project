@@ -33,6 +33,7 @@ function Navbar() {
       toast.error(errorMessage);
     }
   };
+  console.log(user);
   return (
     <div className="bg-white">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16">
@@ -86,8 +87,10 @@ function Navbar() {
                     />
                   </Avatar>
                   <div>
-                    <h4 className="font-medium">{user?.name}</h4>
-                    <p className="text-sm text-muted-foreground">{user?.bio}</p>
+                    <h4 className="font-medium">{user?.fullName}</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {user?.profile?.bio || "NA"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col text-gray-600 my-2">
