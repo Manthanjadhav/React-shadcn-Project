@@ -83,6 +83,7 @@ export const login = async (req, res) => {
       return res.status(400).json({
         message: "Account does not exist with the provided role",
         success: false,
+        role: user.role,
       });
     }
 
