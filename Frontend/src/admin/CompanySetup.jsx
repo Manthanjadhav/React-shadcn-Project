@@ -9,8 +9,11 @@ import { useFetcher, useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios"; // Import axios if not already imported
 import { useSelector } from "react-redux";
+import UseGetCompanyById from "@/hooks/UseGetCompanyById";
 
 function CompanySetup() {
+  const params = useParams();
+  UseGetCompanyById(params.id);
   const navigate = useNavigate();
   const [input, setInput] = useState({
     name: "",
@@ -29,8 +32,6 @@ function CompanySetup() {
   const fileChangeHandler = (e) => {
     setInput({ ...input, file: e.target.files?.[0] });
   };
-
-  const params = useParams();
 
   const submitHandler = async (e) => {
     e.preventDefault();
