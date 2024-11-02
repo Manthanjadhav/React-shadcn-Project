@@ -27,7 +27,7 @@ function AdminJobs() {
             placeholder="Filter by Role & Company"
             onChange={(e) => setInput(e.target.value)}
           />
-          <Button onClick={() => navigate("/admin/job/post")}>New Job</Button>
+          <Button onClick={() => navigate("/admin/jobs/post")}>New Job</Button>
         </div>
         <AdminJobsTable />
       </div>
