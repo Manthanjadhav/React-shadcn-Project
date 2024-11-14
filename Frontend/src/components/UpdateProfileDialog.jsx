@@ -45,7 +45,7 @@ function UpdateProfileDialog({ open, setOpen }) {
     }
 
     const formData = new FormData();
-    formData.append("fullname", input.fullName);
+    formData.append("fullName", input.fullName);
     formData.append("email", input.email);
     formData.append("phoneNumber", input.phoneNumber);
     formData.append("bio", input.bio);
@@ -60,6 +60,8 @@ function UpdateProfileDialog({ open, setOpen }) {
       }
       formData.append("file", input.file);
     }
+
+    console.log(formData);
 
     try {
       const res = await axios.post(
@@ -186,7 +188,7 @@ function UpdateProfileDialog({ open, setOpen }) {
               </Button>
             ) : (
               <Button type="submit" className="w-full">
-                Login
+                Update
               </Button>
             )}
           </DialogFooter>

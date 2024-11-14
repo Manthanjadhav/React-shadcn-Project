@@ -186,6 +186,8 @@ export const updateProfile = async (req, res) => {
       user.profile.resumeOriginalName = file.originalname;
     }
     // Save the updated user
+    console.log(user);
+
     await user.save();
 
     // Respond with updated user data
